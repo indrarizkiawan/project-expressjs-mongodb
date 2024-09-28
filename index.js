@@ -17,10 +17,15 @@ mongoose
   });
 
 app.set("views", path.join(__dirname, "views"));
-app.set("views engine", "ejs");
+app.set("view engine", "ejs");
 
-app.get("/", (req, res) => {
+app.get("/", async (req, res) => {
   res.send("hello world");
+});
+
+app.get("/products", async (req, res) => {
+  const products = await Product.find({});
+  res.render("products", { products });
 });
 
 app.listen(3000, () => {
