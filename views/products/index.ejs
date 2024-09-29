@@ -15,6 +15,13 @@
           <%= product.name %> - <small><%= product.brand %></small>
         </a>
         | <a href="products/<%= product._id  %>/edit">edit</a>
+        <form
+          style="display: inline"
+          action="/products/<%= product._id  %>?_method=DELETE"
+          method="post"
+        >
+          <button type="submit">delete</button>
+        </form>
       </li>
       <% } %>
     </ul>
